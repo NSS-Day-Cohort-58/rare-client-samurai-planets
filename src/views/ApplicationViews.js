@@ -12,6 +12,7 @@ export const ApplicationViews = ({ token, setToken }) => {
       <Route element={<Authorized token={token} />}>
         {/* Add Routes here */}
         <Route path="/posts" element={<Posts setToken={setToken} />} />
+        <Route path="posts/:postid" element={<Posts />} />
       </Route>
     </Routes>
   </>
