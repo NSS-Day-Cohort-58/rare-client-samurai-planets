@@ -11,14 +11,5 @@ export const Posts = ({ id, title, publicationDate, content, category, author1, 
     </section>
 }
 
-// posts.map(post => <Posts
-//     id={post.id}
-//     title={post.title}
-//     publicationDate={post.publication_date}
-//     content={post.content}
-//     category={post.category?.label}
-// />
-// )
-
 
 
