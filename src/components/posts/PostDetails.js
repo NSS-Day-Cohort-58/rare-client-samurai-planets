@@ -22,7 +22,7 @@ export const PostDetails = () => {
         <div className="image"> <img src={post?.image_url} alt="" width="160" height="90" /> </div>
         <div>
             <div className="post_author" ><h1>By: {post?.user?.first_name} {post?.user?.last_name} </h1> </div>
-            <button className="post_button" role="button">Comments</button>
+            <button className="post_button">Comments</button>
         </div>
         <div>{post?.user?.bio} </div>
         <footer className="post__footer"></footer>
