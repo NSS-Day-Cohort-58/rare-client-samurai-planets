@@ -1,3 +1,56 @@
+/*Custom Fonts*/
+@font-face {
+   font-family: Centra;
+   src: url(//db.onlinewebfonts.com/c/229a57bbeef591e04a1fdfe347c90864?family=Centra+No2);
+   font-weight: 700;
+}
+
+@font-face {
+   font-family: Centra;
+   src: url(//db.onlinewebfonts.com/c/229a57bbeef591e04a1fdfe347c90864?family=Centra+No2);
+   font-weight: 500;
+}
+
+@font-face {
+   font-family: Centra;
+   src: url(//db.onlinewebfonts.com/c/229a57bbeef591e04a1fdfe347c90864?family=Centra+No2);
+   font-weight: 400;
+}
+
+/* ==================== DEFAULT CSS ==================== */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+   scroll-padding-top: 75px
+}
+
+body {
+   font-weight: 400;
+   overflow-x: hidden;
+   position: relative;
+   /* background-color: orange !important; */
+   color: black !important;
+   font-family: 'Centra', sans-serif !important;
+}
+
+/* ==================== NAVBAR STYLING ================= */
+.navbar-menu {
+   font-weight: 400;
+   color: black !important;
+   letter-spacing: 0.8px;
+   padding: 0 25px;
+   font-size: 18px;
+}
+
+.navbar-item:hover {
+   opacity: 1;
+}
+
 .navbar-item img {
    max-height: 3rem;
 }

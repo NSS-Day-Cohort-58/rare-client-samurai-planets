@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import "./Posts.css"
 
 export const Posts = () => {
     const [posts, setPosts] = useState([])
