@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { Post } from "./Posts"
-import "./posts.css"
+import { Posts } from "./Posts"
 
 export const PostList = () => {
     const [posts, setPosts] = useState([])
@@ -14,24 +13,20 @@ export const PostList = () => {
             })
     }, [])
 
-    return <>
-        <h1>Posts:</h1>
-        <article className="postList">
-            {
-                posts.map(
-                    (post) => {
-                < section className="Post" >
-                    <div><Link to={`/Posts/${post.id}`}>Name: {post.title}</Link></div>
-                    <aside> It's from the {post.category?.label} category and "{post?.content}" </aside>
-                    <footer> Posted by {post?.user?.first_name} {post?.user?.last_name} on {post?.publication_date} </footer>
-                    <div>Title: { }</div>
-                </section>
-            }
-            )
-            }
-        </article>
-    </>
-
+    return  <article className="postList">
+        {
+ 
+                posts.map(post => <Posts
+                    id = {post.id}
+                    title = {post.title}
+                    publicationDate = {post.publication_date}
+                    content = {post.content}
+                    category = {post.category?.label}
+                    />
+                )
+        
+    }
+    </article>
 }
 
 
