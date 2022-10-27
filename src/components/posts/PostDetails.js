@@ -4,14 +4,13 @@ import "./Posts.css"
 
 export const PostDetails = () => {
     const { postId } = useParams()
-    const [post, updatePost] = useState([])
+    const [post, updatePost] = useState()
 
     useEffect(
         () => {
             fetch(`http://localhost:8088/posts/${postId}`)
                 .then(response => response.json())
                 .then((data) => {
-
                     updatePost(data)
                 })
         },
@@ -20,7 +19,7 @@ export const PostDetails = () => {
     return <section className="post" >
         <header className="post__header"><h1>{post?.title}</h1></header>
         <div className="post_category" ><h2>{post?.category?.label}</h2></div>
-        <div className="image"> <img src={post.image_url} alt="" width="160" height="90" /> </div>
+        <div className="image"> <img src={post?.image_url} alt="" width="160" height="90" /> </div>
         <div>
             <div className="post_author" ><h1>By: {post?.user?.first_name} {post?.user?.last_name} </h1> </div>
             <button class="post_button" role="button">Comments</button>
