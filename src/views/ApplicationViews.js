@@ -5,6 +5,7 @@ import { Authorized } from "./Authorized"
 import { PostList } from "../components/posts/PostList"
 import { PostDetails } from "../components/posts/PostDetails"
 import { TagsList } from "../components/tags/TagsList"
+import { Tags } from "../components/tags/Tags"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -14,8 +15,9 @@ export const ApplicationViews = ({ token, setToken }) => {
       <Route element={<Authorized token={token} />}>
         {/* Add Routes here */}
         <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/:postId" element={<PostDetails />} />
         <Route path="/tags" element={<TagsList />} />
-        <Route path="posts/:postId" element={<PostDetails />} />
+        <Route path="/tags/:tagId" element={<Tags />} />
       </Route>
     </Routes>
   </>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Tags } from "./Tags"
-
+import "./Tags.css"
 
 export const TagsList = () => {
     const [tags, setTags] = useState([])
@@ -31,13 +31,23 @@ export const TagsList = () => {
     }
 
     return <article className="tagList">
-        {
+        <table className="minimalist">
+            <thead>
+                <tr>
+                    <th>Tags</th>
+                </tr>
+            </thead>
+            {
+                tags.map(tag =>
+                    <Tags
+                        key={`tags--${tag.id}`}
+                        id={tag.id}
+                        label={tag.label}
+                    />
+                )
 
-            tags.map(tag => <Tags
-                id={tag.id}
-                label={tag.label}
-            />)
 
-        }
+            }
+        </table>
     </article>
 }

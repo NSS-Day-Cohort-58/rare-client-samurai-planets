@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
-
+import "./Tags.css"
 export const Tags = ({ id, label }) => {
-    return <section className="Tag">
-        <div>label:<Link to={`/tags/${id}`}> {label}</Link></div>
-    </section>
+    return <td><Link to={`/tags/${id}`}> {label}</Link></td>
+    
 }
