@@ -18,7 +18,7 @@
 }
 
 :root {
-    --color-white: hsl(240, 11%, 95%);
+    --color-white: hsl(0, 0%, 100%);
     --color-gray: hsl(252, 100%, 90%);
     --color-black: hsl(252, 30%, 10%);
     --color-danger: hsl(0, 95%, 65%);
@@ -52,7 +52,7 @@ body {
 /* ========= POSTS ========= */
 .postList {
     background: var(--color-white);
-    border-radius: var(--card-border-radius);
+    border-radius: var(--border-radius);
     padding: var(--card-padding);
     margin: 1rem 0;
     font-size: 0.85rem;
