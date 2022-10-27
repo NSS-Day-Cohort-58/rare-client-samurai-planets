@@ -4,7 +4,7 @@ import "./Posts.css"
 
 export const PostDetails = () => {
     const { postId } = useParams()
-    const [post, updatePost] = useState([])
+    const [post, updatePost] = useState()
 
     useEffect(
         () => {
