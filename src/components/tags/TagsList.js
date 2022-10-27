@@ -30,24 +30,18 @@ export const TagsList = () => {
             })
     }
 
-    return <article className="tagList">
-        <table className="minimalist">
-            <thead>
-                <tr>
-                    <th>Tags</th>
-                </tr>
-            </thead>
-            {
-                tags.map(tag =>
-                    <Tags
-                        key={`tags--${tag.id}`}
-                        id={tag.id}
-                        label={tag.label}
-                    />
-                )
-
-
-            }
-        </table>
+    return <article className="grid">
+        <aside className="headNames" >
+            <div>Edit            Delete            Tags</div>
+        </aside>
+        {
+            tags.map(tag =>
+                <Tags
+                    key={`tags--${tag.id}`}
+                    id={tag.id}
+                    label={tag.label}
+                />
+            )
+        }
     </article>
 }
