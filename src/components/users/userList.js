@@ -19,6 +19,8 @@ export const UserList = () => {
                 <th>Username</th>
                 <th> Name</th>
                 <th>Email</th>
+                <th>Activity</th>
+                <th>Role</th>
             </tr>
         </thead>
         {
@@ -28,6 +30,8 @@ export const UserList = () => {
                         <td><Link to={`/users/${user.id}`}> {user.username}</Link></td>
                         <td>{user.first_name} {user.last_name}</td>
                         <td>{user.email}</td>
+                        <td><input type="checkbox"/> Active</td>
+                        <td><input type="radio"/> Author <input type="radio"/> Admin </td>
                     </tr>
                 </tbody>
             )

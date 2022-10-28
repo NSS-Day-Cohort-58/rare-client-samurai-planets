@@ -10,6 +10,7 @@ import { CategoriesList } from "../components/categories/CategoryList"
 import { Categories } from "../components/categories/Categories"
 import { UserList } from "../components/users/userList"
 import { Users } from "../components/users/users"
+import { UserDetails } from "../components/users/userDetails"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -25,7 +26,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/tags" element={<TagsList />} />
         <Route path="/tags/:tagId" element={<Tags />} />
         <Route path="/users" element={<UserList />} />
-        <Route path="/users/:userId" element={<Users />} />
+        <Route path="/users/:userId" element={<UserDetails />} />
       </Route>
     </Routes>
   </>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./Posts.css"
 
 export const PostDetails = () => {
@@ -21,7 +22,7 @@ export const PostDetails = () => {
         <div className="post_category" ><h2>{post?.category?.label}</h2></div>
         <div className="image"> <img src={post?.image_url} alt="" width="160" height="90" /> </div>
         <div>
-            <div className="post_author" ><h1>By: {post?.user?.first_name} {post?.user?.last_name} </h1> </div>
+            <div className="post_author" ><h1>By: <Link to={`/users/${post?.user.id}`}> {post?.user?.first_name} {post?.user?.last_name}</Link> </h1> </div>
             <button className="post_button">Comments</button>
         </div>
         <div>{post?.user?.bio} </div>
