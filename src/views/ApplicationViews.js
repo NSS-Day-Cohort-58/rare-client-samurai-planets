@@ -6,6 +6,10 @@ import { PostList } from "../components/posts/PostList"
 import { PostDetails } from "../components/posts/PostDetails"
 import { TagsList } from "../components/tags/TagsList"
 import { Tags } from "../components/tags/Tags"
+import { CategoriesList } from "../components/categories/CategoryList"
+import { Categories } from "../components/categories/Categories"
+import { UserList } from "../components/users/userList"
+import { Users } from "../components/users/users"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -16,8 +20,12 @@ export const ApplicationViews = ({ token, setToken }) => {
         {/* Add Routes here */}
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/:postId" element={<PostDetails />} />
+        <Route path="/categories" element={<CategoriesList />} />
+        <Route path="/categories/:catId" element={<Categories />} />
         <Route path="/tags" element={<TagsList />} />
         <Route path="/tags/:tagId" element={<Tags />} />
+        <Route path="/users" element={<UserList />} />
+        <Route path="/users/:userId" element={<Users />} />
       </Route>
     </Routes>
   </>
