@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react"
 import { Categories } from "./Categories"
+import { Navigate, useNavigate } from "react-router-dom"
 import { getCategories, createCategory, updateCategory, deleteCategory, getCategoryById } from "../../managers/CategoryManager"
 import "./Cats.css"
 
 export const CategoriesList = () => {
     const [categories, setCategories] = useState([])
-
+    const navigate = useNavigate()
     useEffect(() => {
         getCategories().then(data => setCategories(data))
 
     }, [])
 
-    return <article className="grid">
-        <aside className="headNames" >
-            <div>List of Categories</div>
-        </aside>
+    return <div className = "categories">
+        <h4>List of Categories</h4>
+            <button className = "create_category" onClick={() => {
+            navigate({ pathname: "/category/new" })
+        }}> Create a Category</button>
         {
             categories.map(category =>
                 <Categories
@@ -24,5 +26,5 @@ export const CategoriesList = () => {
                 />
             )
         }
-    </article>
+    </div>
 }

@@ -1,18 +1,14 @@
-.tags {
+.categoryDet {
     display: grid;
-    grid-template-rows: 50px 100px;
-    grid-template-columns: 50px 50px 150px;
-}
-
-.grid {
-    display: grid;
-
-}
-
-.headNames {
-    display: flex;
-
+    grid-template-columns: repeat(7, 15%);
+    grid-template-rows: repeat(2, 3fr);
+    
 }
 
 
 
+
+
+.create_category{
+    width: 150px;
+}
