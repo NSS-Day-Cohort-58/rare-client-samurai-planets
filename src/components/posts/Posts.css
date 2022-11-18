@@ -168,3 +168,29 @@ h3 {
     -webkit-user-select: none;
     touch-action: manipulation;
 }
+.post{
+
+}
+.post__header{
+
+}
+.image{
+width: 25rem;
+margin: 2rem;
+}
+.post_category{
+width: 25rem;
+margin: 2rem;
+}
+.post_date{
+margin: .1rem;
+}
+.post_author{
+    margin: .5rem;
+}
+.post_button{
+    margin: 1rem;
+}
+.post__footer{
+    margin: 2rem;
+}
