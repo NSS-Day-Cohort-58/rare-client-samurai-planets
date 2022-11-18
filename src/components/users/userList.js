@@ -6,7 +6,7 @@ export const UserList = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/users`)
+        fetch(`http://localhost:8000/users`)
             .then(response => response.json())
             .then((userArray) => {
                 setUsers(userArray)

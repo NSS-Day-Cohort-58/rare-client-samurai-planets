@@ -9,7 +9,7 @@ export const PostDetails = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts/${postId}`)
+            fetch(`http://localhost:8000/posts/${postId}`)
                 .then(response => response.json())
                 .then((data) => {
                     updatePost(data)
