@@ -1,7 +1,7 @@
 export const getPosts = () => {
     return fetch("http://localhost:8000/posts", {
         headers:{
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
         }
     })
         .then(response => response.json())
@@ -9,7 +9,7 @@ export const getPosts = () => {
 export const getPost = (id) => {
     return fetch(`http://localhost:8000/posts/${id}`, {
         headers:{
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
         }
     })
     .then(response => response.json())
@@ -18,7 +18,7 @@ export const getCategories = () => {
     return fetch("http://localhost:8000/Categories", {
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
         }
     })
         .then(response => response.json())
@@ -28,7 +28,7 @@ export const createPost = (post) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
         },    
         body: JSON.stringify(post)
     })
@@ -39,7 +39,7 @@ export const updatePost = (post) => {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
         },    
         body: JSON.stringify(post)
     })
@@ -50,7 +50,7 @@ export const deletePost = (post) => {
     method: "DELETE",
     headers: {
         "Content-Type": "application/json",
-        "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        "Authorization": `Token ${localStorage.getItem("auth_token")}`
     },
     })
 }

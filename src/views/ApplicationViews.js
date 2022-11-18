@@ -9,8 +9,9 @@ import { Tags } from "../components/tags/Tags"
 import { CategoriesList } from "../components/categories/CategoryList"
 import { Categories } from "../components/categories/Categories"
 import { UserList } from "../components/users/userList"
-import { Users } from "../components/users/users"
+
 import { UserDetails } from "../components/users/userDetails"
+import { PostForm } from "../components/posts/PostForm"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -20,6 +21,7 @@ export const ApplicationViews = ({ token, setToken }) => {
       <Route element={<Authorized token={token} />}>
         {/* Add Routes here */}
         <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/new" element={<PostForm />} />
         <Route path="/posts/:postId" element={<PostDetails />} />
         <Route path="/categories" element={<CategoriesList />} />
         <Route path="/categories/:catId" element={<Categories />} />
