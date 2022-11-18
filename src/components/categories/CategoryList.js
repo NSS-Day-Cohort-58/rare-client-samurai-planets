@@ -6,7 +6,7 @@ export const CategoriesList = () => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/categories`)
+        fetch(`http://localhost:8000/categories`)
             .then(response => response.json())
             .then((categoryArray) => {
                 setCategories(categoryArray)
@@ -17,12 +17,12 @@ export const CategoriesList = () => {
         const copy = {
             label: categories.label
         }
-        return fetch(`http://localhost:8088/categories/${categories.id}`, {
+        return fetch(`http://localhost:8000/categories/${categories.id}`, {
             method: "DELETE",
         })
             .then(response => response.json())
             .then(() => {
-                fetch(`http://localhost:8088/categories`)
+                fetch(`http://localhost:8000/categories`)
                     .then(response => response.json())
                     .then((categories) => {
                         setCategories(categories)

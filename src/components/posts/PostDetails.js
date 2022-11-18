@@ -9,13 +9,13 @@ export const PostDetails = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts/${postId}`)
+            fetch(`http://localhost:8000/posts/${postId}`)
                 .then(response => response.json())
                 .then((data) => {
                     updatePost(data)
                 })
         },
-        []
+        [postId]
     )
     return <section className="post" >
         <header className="post__header"><h1>{post?.title}</h1></header>

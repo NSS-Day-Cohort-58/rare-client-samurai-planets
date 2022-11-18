@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
 import { Posts } from "./Posts"
 import { Link } from "react-router-dom"
+import { getPosts } from "../../managers/PostManager"
 
 export const PostList = () => {
     const [posts, setPosts] = useState([])
 
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:8000/posts`)
+    //         .then((postArray) => {
+    //             setPosts(postArray)
+    //         })
+    // }, [])
     useEffect(() => {
-        fetch(`http://localhost:8088/posts`)
-            .then(response => response.json())
-            .then((postArray) => {
-                setPosts(postArray)
-            })
+        getPosts().then(setPosts())
     }, [])
 
     return <table className="minimalistBlack">
@@ -24,7 +28,7 @@ export const PostList = () => {
             </tr>
         </thead>
         {
-            posts.map(post =>
+            posts?.map(post =>
                 <tbody key={post.id} >
                     <tr>
                         <td><Link to={`/posts/${post.id}`}> {post.title}</Link></td>
