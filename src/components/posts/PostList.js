@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Posts } from "./Posts"
 import { Link } from "react-router-dom"
 import { getPosts } from "../../managers/PostManager"
 
@@ -14,7 +13,7 @@ export const PostList = () => {
     //         })
     // }, [])
     useEffect(() => {
-        getPosts().then(setPosts())
+        getPosts().then(setPosts)
     }, [])
 
     return <table className="minimalistBlack">
@@ -22,9 +21,9 @@ export const PostList = () => {
             <tr>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Date</th>
+                {/* <th>Date</th> */}
                 <th>Category</th>
-                <th>Tags</th>
+                {/* <th>Tags</th> */}
             </tr>
         </thead>
         {
@@ -32,10 +31,10 @@ export const PostList = () => {
                 <tbody key={post.id} >
                     <tr>
                         <td><Link to={`/posts/${post.id}`}> {post.title}</Link></td>
-                        <td>{post.user.first_name} {post.user.last_name}</td>
-                        <td>{post.publication_date}</td>
-                        <td>{post.category.label}</td>
-                        <td>{post.tags}</td>
+                        <td> {post?.author?.user?.first_name} {post?.author?.user?.last_name}</td>
+                        {/* <td>{post?.date}</td> */}
+                        <td>{post?.category?.label}</td>
+                        {/* <td>{post?.image}</td> */}
                     </tr>
                 </tbody>
             )

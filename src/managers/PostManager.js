@@ -12,7 +12,7 @@ export const getPost = (id) => {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
     })
-        .then(response => response.json())
+    .then(response => response.json())
 }
 export const getCategories = () => {
     return fetch("http://localhost:8000/Categories", {
