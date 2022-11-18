@@ -3,9 +3,9 @@ import "./Cats.css"
 export const Categories = ({ id, label }) => {
     return <div className="tags" >
         <td><Link to={`/categories/${id}`}> {label}</Link></td>
-        <div className = "buttons">
-            <button>⚙️</button>
-            <button >🗑️</button>
+        <div className = "buttonIcons">
+            <button className = "settings">⚙️</button>
+            <button className = "trash" >🗑️</button>
         </div>
     </div>
 }

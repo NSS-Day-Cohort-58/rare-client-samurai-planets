@@ -13,7 +13,7 @@ export const CategoriesList = () => {
 
     return <article className="grid">
         <aside className="headNames" >
-            <div>Edit            Delete            Categories</div>
+            <div>List of Categories</div>
         </aside>
         {
             categories.map(category =>
