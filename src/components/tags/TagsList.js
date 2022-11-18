@@ -6,7 +6,7 @@ export const TagsList = () => {
     const [tags, setTags] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/tags`)
+        fetch(`http://localhost:8000/tags`)
             .then(response => response.json())
             .then((tagArray) => {
                 setTags(tagArray)
@@ -17,12 +17,12 @@ export const TagsList = () => {
         const copy = {
             label: tags.label
         }
-        return fetch(`http://localhost:8088/tags/${tags.id}`, {
+        return fetch(`http://localhost:8000/tags/${tags.id}`, {
             method: "DELETE",
         })
             .then(response => response.json())
             .then(() => {
-                fetch(`http://localhost:8088/tags`)
+                fetch(`http://localhost:8000/tags`)
                     .then(response => response.json())
                     .then((tags) => {
                         setTags(tags)

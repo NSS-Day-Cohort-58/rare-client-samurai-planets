@@ -6,7 +6,7 @@ export const PostList = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/posts`)
+        fetch(`http://localhost:8000/posts`)
             .then(response => response.json())
             .then((postArray) => {
                 setPosts(postArray)
