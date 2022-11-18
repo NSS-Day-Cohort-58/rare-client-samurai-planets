@@ -3,8 +3,8 @@ export const getCategories = () => {
         method: "GET",    
         headers:{
             "Content-Type": "application/json",
-            "Accept": "application/json"
-            //"Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Accept": "application/json",
+            "Authorization": `Token ${localStorage.getItem("planet_token")}`
 
         }
     })
