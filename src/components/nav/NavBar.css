@@ -1,21 +1,4 @@
-/*Custom Fonts*/
-@font-face {
-   font-family: Centra;
-   src: url(//db.onlinewebfonts.com/c/229a57bbeef591e04a1fdfe347c90864?family=Centra+No2);
-   font-weight: 700;
-}
 
-@font-face {
-   font-family: Centra;
-   src: url(//db.onlinewebfonts.com/c/229a57bbeef591e04a1fdfe347c90864?family=Centra+No2);
-   font-weight: 500;
-}
-
-@font-face {
-   font-family: Centra;
-   src: url(//db.onlinewebfonts.com/c/229a57bbeef591e04a1fdfe347c90864?family=Centra+No2);
-   font-weight: 400;
-}
 
 /* ==================== DEFAULT CSS ==================== */
 * {
@@ -31,11 +14,10 @@ html {
 
 body {
    font-weight: 400;
-   overflow-x: hidden;
+   overflow-x:visible;
    position: relative;
    /* background-color: orange !important; */
    color: black !important;
-   font-family: 'Centra', sans-serif !important;
 }
 
 /* ==================== NAVBAR STYLING ================= */
