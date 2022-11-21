@@ -31,7 +31,7 @@ html {
 
 body {
    font-weight: 400;
-   overflow-x: hidden;
+   overflow-x:visible;
    position: relative;
    /* background-color: orange !important; */
    color: black !important;

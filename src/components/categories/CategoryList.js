@@ -1,39 +1,22 @@
 import { useEffect, useState } from "react"
 import { Categories } from "./Categories"
+import { Navigate, useNavigate } from "react-router-dom"
+import { getCategories, createCategory, updateCategory, deleteCategory, getCategoryById } from "../../managers/CategoryManager"
 import "./Cats.css"
 
 export const CategoriesList = () => {
     const [categories, setCategories] = useState([])
-
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:8000/categories`)
-            .then(response => response.json())
-            .then((categoryArray) => {
-                setCategories(categoryArray)
-            })
+        getCategories().then(data => setCategories(data))
+
     }, [])
 
-    const willDelete = (categories) => {
-        const copy = {
-            label: categories.label
-        }
-        return fetch(`http://localhost:8000/categories/${categories.id}`, {
-            method: "DELETE",
-        })
-            .then(response => response.json())
-            .then(() => {
-                fetch(`http://localhost:8000/categories`)
-                    .then(response => response.json())
-                    .then((categories) => {
-                        setCategories(categories)
-                    })
-            })
-    }
-
-    return <article className="grid">
-        <aside className="headNames" >
-            <div>Edit            Delete            Categories</div>
-        </aside>
+    return <div className = "categories">
+        <h4 className = "categoryHeader">List of Categories</h4>
+            <button className = "create_category" onClick={() => {
+            navigate({ pathname: "/category/new" })
+        }}> Create a Category</button>
         {
             categories.map(category =>
                 <Categories
@@ -43,5 +26,5 @@ export const CategoriesList = () => {
                 />
             )
         }
-    </article>
+    </div>
 }
