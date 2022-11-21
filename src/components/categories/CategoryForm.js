@@ -31,7 +31,7 @@ export const CategoryForm = () => {
             {/* TODO: create the rest of the input fields */}
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="label">Category: </label>
+                    <label htmlFor="label">Category Name:   </label>
                     <input 
                     onChange={changeCategoryState}
                         type="text" id = 'label' required autoFocus className="form-control"

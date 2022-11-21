@@ -31,8 +31,8 @@ export const Register = ({setToken}) => {
 
       registerUser(newUser)
         .then(res => {
-          if ("token" in res) {
-            localStorage.setItem("planet_token", res.token)
+          if ("valid" in res && res.valid) {
+            setToken(res.token)
             navigate("/")
           }
         })

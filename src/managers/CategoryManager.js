@@ -4,7 +4,7 @@ export const getCategories = () => {
         headers:{
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": `Token ${localStorage.getItem("planet_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
 
         }
     })
@@ -17,8 +17,8 @@ export const createCategory = (newCategoryObject) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
-            //"Authorization": `Token ${localStorage.getItem("lu_token")}`
+            "Accept": "application/json",
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
 
         },
         body: JSON.stringify(newCategoryObject)
@@ -32,8 +32,8 @@ export const updateCategory = (category) => {
         method: "PUT",    
         headers:{
                 "Content-Type": "application/json",
-                "Accept": "application/json"
-                //"Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Accept": "application/json",
+                "Authorization": `Token ${localStorage.getItem("auth_token")}`
             },
             body: JSON.stringify(category)
          })
@@ -45,7 +45,7 @@ export const getCategoryById = (id) => {
         headers:{
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                //"Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("auth_token")}`
             }
      })
         .then(response => response.json())
@@ -57,7 +57,7 @@ export const deleteCategory = (category) => {
         headers:{
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                //"Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("auth_token")}`
             },
             })
 }

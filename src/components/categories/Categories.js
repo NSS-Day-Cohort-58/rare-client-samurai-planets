@@ -2,10 +2,10 @@ import { Link } from "react-router-dom"
 import "./Cats.css"
 export const Categories = ({ id, label }) => {
     return <div className="categoryDet" >
-        <td><Link to={`/categories/${id}`}> {label}</Link></td>
+        <Link to={`/categories/${id}`}> {label}</Link>
         <div className = "buttonIcons">
-            <button className = "settings">⚙️</button>
-            <button className = "trash" >🗑️</button>
+            <button className = "settings">⚙️ Edit</button>
+            <button className = "trash" >🗑️ Delete</button>
         </div>
     </div>
 }

@@ -13,7 +13,7 @@ export const CategoriesList = () => {
     }, [])
 
     return <div className = "categories">
-        <h4>List of Categories</h4>
+        <h4 className = "categoryHeader">List of Categories</h4>
             <button className = "create_category" onClick={() => {
             navigate({ pathname: "/category/new" })
         }}> Create a Category</button>
