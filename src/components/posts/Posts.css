@@ -46,7 +46,6 @@ body {
     position: relative;
     /* background-color: orange !important; */
     color: black !important;
-    font-family: 'Centra', sans-serif !important;
 }
 
 /* ========= POSTS ========= */
@@ -155,7 +154,6 @@ h3 {
     color: #333333;
     cursor: pointer;
     display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;

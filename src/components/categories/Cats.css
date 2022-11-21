@@ -1,15 +1,33 @@
-.tags {
-    display: grid;
-    grid-template-rows: 50px 100px;
-    grid-template-columns: 50px 50px 150px;
-}
-
-.grid {
-    display: grid;
+.categoryDet {
+    grid-column-start: 1;
 
 }
 
-.headNames {
-    display: flex;
+
+.categories {
+    margin:20px;
+    display: grid; 
+    grid-template-columns: 0.2fr .2fr 1.5fr; 
+    grid-template-rows: repeat(15, 1fr);
+    gap: 15px 0px; 
+    width: 100%;
+    height: auto;
+}
+
+.categoryHeader {
+    font-size: 18px;
+    font-weight: bolder;
+    font-style: italic;
 
 }
+
+.create_category{
+    width: 100px;
+    background-color: palegreen;
+}
+
+.trash {
+    margin-left: 10px;
+}
+
+
