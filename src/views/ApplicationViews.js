@@ -9,6 +9,7 @@ import { Tags } from "../components/tags/Tags"
 import { CategoriesList } from "../components/categories/CategoryList"
 import { Categories } from "../components/categories/Categories"
 import { CategoryForm } from "../components/categories/CategoryForm"
+import { CategoryEdit } from "../components/categories/CategoryEdit"
 import { UserList } from "../components/users/userList"
 import { Users } from "../components/users/users"
 import { UserDetails } from "../components/users/userDetails"
@@ -25,6 +26,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/categories" element={<CategoriesList />} />
         <Route path="/category/new" element={<CategoryForm />} />
         <Route path="/categories/:catId" element={<Categories />} />
+        <Route path="/categories/:catId/edit" element={<CategoryEdit />} />
         <Route path="/tags" element={<TagsList />} />
         <Route path="/tags/:tagId" element={<Tags />} />
         <Route path="/users" element={<UserList />} />
