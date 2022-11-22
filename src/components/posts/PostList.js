@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate} from "react-router-dom"
-import { getPosts} from "../../managers/PostManager"
+import { getPosts, deletePost} from "../../managers/PostManager"
 
 export const PostList = () => {
     const [posts, setPosts] = useState([])
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:8000/posts`)
-    //         .then((postArray) => {
-    //             setPosts(postArray)
-    //         })
-    // }, [])
+
     useEffect(() => {
         getPosts().then(setPosts)
     }, [])
 
+    const updatePostList = () => {
+        getPosts().then(setPosts)
+    }
+
+    useEffect(()=> {
+        updatePostList()
+    }, [])
     return <div className = "post_list"><table className="minimalistBlack">
         <thead>
             <tr>
@@ -41,7 +43,15 @@ export const PostList = () => {
                         <td><center><button className = "edit_post" onClick= {() => {
                             navigate({pathname: `/posts/${post.id}/edit`})
                         }}>Edit</button></center></td>
-                        <td><center><button>Delete</button></center></td>
+
+                        <td><center><button onClick ={evt => {
+                            evt.preventDefault()
+                            const postDel = {
+                                id: parseInt(post.id)
+                            }
+                            deletePost(postDel)
+                            .then(() => updatePostList())
+                        }}>Delete</button></center></td>
 
 
                     </tr>

@@ -19,8 +19,7 @@ export const PostEdit = () => {
         content: "",
         title: "",
         image: "",
-        category: 0,
-        date: ""
+        category: 0
     })
 
     useEffect(() => {
@@ -90,7 +89,7 @@ export const PostEdit = () => {
                 </div>
             </fieldset>
 
-            <button type="submit"
+            <button type="update"
                 onClick={evt => {
                     // Prevent form from being submitted
                     evt.preventDefault()
@@ -100,8 +99,7 @@ export const PostEdit = () => {
                         image: currentPost.image,
                         title: currentPost.title,
                         content: currentPost.content,
-                        category: parseInt(chosenCategory),
-                        date: Date.now(),
+                        category: parseInt(chosenCategory)                    
                     }
 
                     // Send POST request to your API

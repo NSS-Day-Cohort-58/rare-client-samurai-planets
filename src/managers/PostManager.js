@@ -27,22 +27,26 @@ export const createPost = (newPostObject) => {
     })
     .then(response => response.json())
 }
+
+
 export const updatePost = (post) => {
     return fetch(`http://localhost:8000/posts/${post.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
+            "Accept": "application/json",
             "Authorization": `Token ${localStorage.getItem("auth_token")}`
         },    
         body: JSON.stringify(post)
     })
-    .then(response => response.json())
 }
+
 export const deletePost = (post) => {
-    return fetch(`http://localhost:8000/posts/${post}`, {
+    return fetch(`http://localhost:8000/posts/${post.id}`, {
     method: "DELETE",
     headers: {
         "Content-Type": "application/json",
+        "Accept": "application/json",
         "Authorization": `Token ${localStorage.getItem("auth_token")}`
     },
     })
