@@ -3,6 +3,7 @@ import { Categories } from "./Categories"
 import { Navigate, useNavigate } from "react-router-dom"
 import { getCategories, createCategory, updateCategory, deleteCategory, getCategoryById } from "../../managers/CategoryManager"
 import "./Cats.css"
+import { getPosts } from "../../managers/PostManager"
 
 export const CategoriesList = () => {
     const [categories, setCategories] = useState([])
@@ -12,6 +13,13 @@ export const CategoriesList = () => {
 
     }, [])
 
+    const updateCategoryList = () => {
+        getCategories().then(setCategories)
+    }
+
+    useEffect(() => {
+        updateCategoryList()
+    }, [])
     return <div className = "categories">
         <h4 className = "categoryHeader">List of Categories</h4>
             <button className = "create_category" onClick={() => {

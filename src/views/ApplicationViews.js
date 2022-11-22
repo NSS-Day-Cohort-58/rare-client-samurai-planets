@@ -10,8 +10,9 @@ import { Categories } from "../components/categories/Categories"
 import { CategoryForm } from "../components/categories/CategoryForm"
 import { CategoryEdit } from "../components/categories/CategoryEdit"
 import { UserList } from "../components/users/userList"
-import { Users } from "../components/users/users"
+import { PostEdit } from "../components/posts/PostEdit"
 import { UserDetails } from "../components/users/userDetails"
+import { PostForm } from "../components/posts/PostForm"
 import { CommentList } from "../components/comments/CommentList"
 import { CommentForm } from "../components/comments/CommentForm"
 import { UpdateCommentForm } from "../components/comments/UpdateComment"
@@ -24,7 +25,9 @@ export const ApplicationViews = ({ token, setToken }) => {
       <Route element={<Authorized token={token} />}>
         {/* Add Routes here */}
         <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/new" element={<PostForm />} />
         <Route path="/posts/:postId" element={<PostDetails />} />
+        <Route path="/posts/:postId/edit" element={<PostEdit />} />
         <Route path="/categories" element={<CategoriesList />} />
         <Route path="/category/new" element={<CategoryForm />} />
         <Route path="/categories/:catId" element={<Categories />} />
