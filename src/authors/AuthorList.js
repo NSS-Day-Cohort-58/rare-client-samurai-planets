@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
-import { getAllAuthors } from "../managers/AuthorManager"
+import { Link, useParams } from "react-router-dom"
+import { getAllAuthors, getAuthorById } from "../managers/AuthorManager"
 
 export const AuthorList = () => {
     const [authors, setAuthors] = useState([])
 
+    
+    const { authorId } = useParams()
+    
     const updateAuthorList = () => {
         getAllAuthors().then(setAuthors)
     }
@@ -19,9 +23,9 @@ export const AuthorList = () => {
             {
                 authors.map(author => {
                     return <div className="author">
-                        <h3 className="author__name">{author.full_name}</h3>
-                        <div className="author_username">{author.bio}</div>
-                        <div className="author_email">{author?.user?.email}</div>
+                        <h3 className="author__name">Username: {author?.user?.username}</h3>
+                        <div className="full_name">Name: <Link to={`/authors/${author.id}`}>{author.full_name}</Link></div>
+                        <div className="author_email">Email: {author?.user?.email}</div>
                     </div>
                 })
             }
