@@ -137,12 +137,14 @@ h3 {
     justify-content: center;
 }
 
-.post_category {
-    display: flex;
-    justify-content: end;
-}
+
 
 .post_author {
+    display: flex;
+    justify-content: start;
+}
+
+.post_categories {
     display: flex;
     justify-content: start;
 }
@@ -167,4 +169,36 @@ h3 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+}
+.post{
+
+}
+.post__header{
+
+}
+
+.form-control-content {
+    width: 500px;
+    height: 200px
+}
+.image{
+width: 25rem;
+margin: 2rem;
+}
+.post_content{
+width: 25rem;
+margin: 2rem;
+}
+ 
+.post_date{
+margin: .1rem;
+}
+.post_author{
+    margin: .5rem;
+}
+.post_button{
+    margin: 1rem;
+}
+.post__footer{
+    margin: 2rem;
 }
