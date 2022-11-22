@@ -5,7 +5,6 @@ import { Authorized } from "./Authorized"
 import { PostList } from "../components/posts/PostList"
 import { PostDetails } from "../components/posts/PostDetails"
 import { TagsList } from "../components/tags/TagsList"
-import { Tags } from "../components/tags/Tags"
 import { CategoriesList } from "../components/categories/CategoryList"
 import { Categories } from "../components/categories/Categories"
 import { CategoryForm } from "../components/categories/CategoryForm"
@@ -31,7 +30,6 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/categories/:catId" element={<Categories />} />
         <Route path="/categories/:catId/edit" element={<CategoryEdit />} />
         <Route path="/tags" element={<TagsList />} />
-        <Route path="/tags/:tagId" element={<Tags />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/users/:userId" element={<UserDetails />} />
         <Route path="/comments" element={<CommentList />} />

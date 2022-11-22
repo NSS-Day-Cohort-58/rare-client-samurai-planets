@@ -1,47 +1,77 @@
 import { useEffect, useState } from "react"
-import { Tags } from "./Tags"
+import { getAllTags, createTag, deleteTag } from "../../managers/TagManager"
 import "./Tags.css"
 
 export const TagsList = () => {
     const [tags, setTags] = useState([])
 
+    const [currentTag, setCurrentTag] = useState({
+        label: ""
+    })
+
+    const updateTagList = () => {
+        getAllTags().then(setTags)
+    }
+
     useEffect(() => {
-        fetch(`http://localhost:8000/tags`)
-            .then(response => response.json())
-            .then((tagArray) => {
-                setTags(tagArray)
-            })
+        updateTagList()
     }, [])
 
-    const willDelete = (tags) => {
-        const copy = {
-            label: tags.label
-        }
-        return fetch(`http://localhost:8000/tags/${tags.id}`, {
-            method: "DELETE",
-        })
-            .then(response => response.json())
-            .then(() => {
-                fetch(`http://localhost:8000/tags`)
-                    .then(response => response.json())
-                    .then((tags) => {
-                        setTags(tags)
-                    })
-            })
+    const changeTagState = (event) => {
+        const copy = { ...currentTag }
+        copy[event.target.id] = event.target.value
+        setCurrentTag(copy)
     }
 
     return <article className="grid">
-        <aside className="headNames" >
-            <div>Edit            Delete            Tags</div>
-        </aside>
-        {
-            tags.map(tag =>
-                <Tags
-                    key={`tags--${tag.id}`}
-                    id={tag.id}
-                    label={tag.label}
-                />
-            )
-        }
+        <header>
+            <h1>Tags</h1>
+        </header>
+        <section className="tags">
+            {
+                tags.map(tag => {
+                    return <>
+                        <section key={`tag--${tag.id}`} className="tag">
+                            <div className="tag__name">{tag.label}</div>
+                            <button className="tag__delete"
+                                onClick={() => {
+                                    deleteTag(tag)
+                                        .then(updateTagList)
+                                }}
+                            >🗑</button>
+                        </section>
+                    </>
+                })
+            }
+            <fieldset >
+                <div className="tag" >
+                    <label htmlFor="label">Tag Name:</label>
+                    <input
+                        type="text"
+                        id="label"
+                        name="tag__name"
+                        required autoFocus
+                        className="form-control"
+                        placeholder="Tag Name"
+                        onChange={changeTagState}
+                    />
+                </div>
+                <button type="submit"
+                    onClick={evt => {
+                        evt.preventDefault()
+
+                        const tag = {
+                            label: currentTag.label
+                        }
+
+                        createTag(tag)
+                            .then(() => {
+                                updateTagList()
+                            })
+                    }}
+                    className="tag__create">Create Tag</button>
+            </fieldset>
+        </section>
+
     </article>
 }
