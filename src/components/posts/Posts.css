@@ -137,12 +137,14 @@ h3 {
     justify-content: center;
 }
 
-.post_category {
-    display: flex;
-    justify-content: end;
-}
+
 
 .post_author {
+    display: flex;
+    justify-content: start;
+}
+
+.post_categories {
     display: flex;
     justify-content: start;
 }
@@ -178,10 +180,11 @@ h3 {
 width: 25rem;
 margin: 2rem;
 }
-.post_category{
+.post_content{
 width: 25rem;
 margin: 2rem;
 }
+ 
 .post_date{
 margin: .1rem;
 }

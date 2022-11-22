@@ -14,23 +14,16 @@ export const getPost = (id) => {
     })
     .then(response => response.json())
 }
-export const getCategories = () => {
-    return fetch("http://localhost:8000/Categories", {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("auth_token")}`
-        }
-    })
-        .then(response => response.json())
-}
-export const createPost = (post) => {
+
+export const createPost = (newPostObject) => {
     return fetch("http://localhost:8000/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "Accept": "application/json",
             "Authorization": `Token ${localStorage.getItem("auth_token")}`
         },    
-        body: JSON.stringify(post)
+        body: JSON.stringify(newPostObject)
     })
     .then(response => response.json())
 }

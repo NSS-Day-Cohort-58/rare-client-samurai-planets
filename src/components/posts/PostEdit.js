@@ -1,52 +1,60 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
-import { createPost, getAuthors } from '../../managers/PostManager.js'
+import { updatePost, getPost } from '../../managers/PostManager.js'
 import { getCategories } from "../../managers/CategoryManager.js"
+import { useParams } from "react-router-dom"
 
-export const PostForm = () => {
+export const PostEdit = () => {
     const navigate = useNavigate()
     const [categories, setCategories] = useState([])
-    const [author, setAuthor] = useState([])
-
-    /*
+    const [chosenCategory, setChosenCategory] = useState(0)
+    const {postId} = useParams()
+     /*
         Since the input fields are bound to the values of
         the properties of this state variable, you need to
         provide some default values.
     */
     const [currentPost, setCurrentPost] = useState({
+        id:0,
         content: "",
         title: "",
         image: "",
         category: 0,
-        date: "",
-        author: 0
+        date: ""
     })
 
-    // useEffect(() => {
-    //     getAuthors().then(setAuthor)
-    // }, [])
+    useEffect(() => {
+        getPost(postId)
+        .then(setCurrentPost)
+    }, [])
 
     useEffect(() => {
         // TODO: Get the categories, then set the state
         getCategories().then(setCategories)
     }, [])
 
+    useEffect(() => {
+        setChosenCategory(currentPost.category.id)
+        }, [currentPost])
+
+
     const changePostState = (domEvent) => {
         // TODO: Complete the onChange function
-        const updatedPost = {...currentPost }
-        updatedPost[domEvent.target.id] = domEvent.target.value
-        setCurrentPost(updatedPost)
+        const copy = {...currentPost}
+        const modify = domEvent.target.id
+        copy[modify] = domEvent.target.value    
+        setCurrentPost(copy)
     }
 
     return (
         <form className="postForm">
-            <h2 className="postForm__title">Register New Post</h2>
+            <h2 className="postForm__title">Edit Post</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Title: </label>
-                    <input type="text" name="title" id="title" required autoFocus defaultValue={currentPost.title} className="form-control"
+                    <input type="text" id="title"  className="form-control"
                         
-                        onChange={changePostState}
+                        onChange={changePostState }value={currentPost.title} required autoFocus
                     />
                 </div>
             </fieldset>
@@ -55,22 +63,15 @@ export const PostForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="image">Image: </label>
-                    <input type="text" className="form-control" name="image" id="image" required autoFocus defaultValue={currentPost.image}
+                    <input type="text" className="form-control" value = {currentPost.image} id="image" required autoFocus defaultValue={currentPost.image}
                         onChange={changePostState} />
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="date">Date: </label>
-                    <input type="date" className="form-control" name="date" id="date" required autoFocus defaultValue={currentPost.date}
-                        onChange={changePostState} />
-                </div>
-            </fieldset> */}
             
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="content">Post Content: </label>
-                    <input type="text" className="form-control" name="content" id="content" required autoFocus defaultValue={currentPost.content}
+                    <input type="text" className="form-control" id="content" required autoFocus defaultValue={currentPost.content}
                         onChange={changePostState} />
                 </div>
             </fieldset>
@@ -79,11 +80,11 @@ export const PostForm = () => {
                 <div className="form-group">
                 <label htmlFor="category">Category: </label>
                 <select
-                    name="category" id="category"
-                    onChange={changePostState}>
-                    <option value="0">Choose category</option>
+                    id="category"
+                    value = {chosenCategory} onChange = {event => setChosenCategory(event.target.value)}>
                     {
-                        categories.map(category => <option key={`category--${category.id}`} value={category.id} >{category.label}</option>)
+                        categories.map((category) => {
+                            return <option key={`category--${category.id}`} selected value={category.id} >{category.label}</option>})
                     }
                     </select>
                 </div>
@@ -95,22 +96,20 @@ export const PostForm = () => {
                     evt.preventDefault()
 
                     const post = {
+                        id: currentPost.id,
                         image: currentPost.image,
                         title: currentPost.title,
                         content: currentPost.content,
-                        category: parseInt(currentPost.category),
+                        category: parseInt(chosenCategory),
                         date: Date.now(),
-                        author: parseInt(author)
                     }
 
                     // Send POST request to your API
-                    createPost(post)
+                    updatePost(post)
                         .then(() => navigate("/posts"))
                 }}
-                className="btn btn-primary">Create Post</button>
+                className="btn btn-primary">Update Post</button>
         </form>
     )
 }
 
-//Classic and Very Popular 90s anime with a good plot and great characters!
-//https://pics.filmaffinity.com/cowboy_bebop-548837932-large.jpg

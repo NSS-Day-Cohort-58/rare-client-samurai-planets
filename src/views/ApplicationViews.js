@@ -11,7 +11,7 @@ import { Categories } from "../components/categories/Categories"
 import { CategoryForm } from "../components/categories/CategoryForm"
 import { CategoryEdit } from "../components/categories/CategoryEdit"
 import { UserList } from "../components/users/userList"
-
+import { PostEdit } from "../components/posts/PostEdit"
 import { UserDetails } from "../components/users/userDetails"
 import { PostForm } from "../components/posts/PostForm"
 
@@ -25,6 +25,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/posts" element={<PostList />} />
         <Route path="/posts/new" element={<PostForm />} />
         <Route path="/posts/:postId" element={<PostDetails />} />
+        <Route path="/posts/:postId/edit" element={<PostEdit />} />
         <Route path="/categories" element={<CategoriesList />} />
         <Route path="/category/new" element={<CategoryForm />} />
         <Route path="/categories/:catId" element={<Categories />} />

@@ -8,16 +8,6 @@ export const PostDetails = () => {
     const { postId } = useParams()
     const [post, updatePost] = useState()
 
-    // useEffect(  
-    //     () => {
-    //         fetch(`http//:localhost:8000/posts/${postId}`)
-    //             .then(response => response.json())
-    //             .then((data) => {
-    //                 updatePost(data)
-    //             })
-    //     },
-    //     [postId]
-    // )
     useEffect(() => {
         getPost(postId).then(updatePost)
     }, [postId])
@@ -26,8 +16,9 @@ export const PostDetails = () => {
     <section className="post" >
         <header className="post__header"><h1>{post?.title}</h1></header>
         <div className="image"> <img src={post?.image} alt="" width="160" height="90" /> </div>
-        <div className="post_category" >{post?.content}</div>
-        <div className="post_date" >{post?.date}</div>
+        <div className="post_content" >{post?.content}</div>
+        <div className="post_categories" > Category: {post?.category?.label}</div>
+        <div className="post_date" > Date Created: {post?.date}</div>
         <div className="post_author" ><h1>By: <Link to={`/users/${post?.author}`}>{post?.author?.user?.first_name} {post?.author?.user?.last_name} </Link> </h1> </div>
         <button className="post_button">Comments</button>
         <div> </div>
