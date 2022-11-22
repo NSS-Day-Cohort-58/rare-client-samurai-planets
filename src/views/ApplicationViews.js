@@ -15,6 +15,7 @@ import { CommentList } from "../components/comments/CommentList"
 import { CommentForm } from "../components/comments/CommentForm"
 import { UpdateCommentForm } from "../components/comments/UpdateComment"
 import { AuthorDetails } from "../authors/AuthorDetails"
+import { AuthorList } from "../authors/AuthorList"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -32,7 +33,7 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/categories/:catId" element={<Categories />} />
         <Route path="/categories/:catId/edit" element={<CategoryEdit />} />
         <Route path="/tags" element={<TagsList />} />
-        {/* <Route path="/authors" element={<AuthorList />} /> */}
+        <Route path="/authors" element={<AuthorList />} />
         <Route path="/authors/:authorId" element={<AuthorDetails />} />
         <Route path="/comments" element={<CommentList />} />
         <Route path="/comments/new" element={<CommentForm />} />
