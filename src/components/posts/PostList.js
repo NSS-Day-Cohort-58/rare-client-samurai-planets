@@ -61,7 +61,7 @@ export const PostList = () => {
         
     </table>
     <button className = "create_post" onClick={() => {
-        navigate({ pathname: "/post/new" })
+        navigate({ pathname: "/posts/new" })
     }}> Create a Post</button>
     </div>
 }
