@@ -9,13 +9,12 @@ import { CategoriesList } from "../components/categories/CategoryList"
 import { Categories } from "../components/categories/Categories"
 import { CategoryForm } from "../components/categories/CategoryForm"
 import { CategoryEdit } from "../components/categories/CategoryEdit"
-import { UserList } from "../components/users/userList"
 import { PostEdit } from "../components/posts/PostEdit"
-import { UserDetails } from "../components/users/userDetails"
 import { PostForm } from "../components/posts/PostForm"
 import { CommentList } from "../components/comments/CommentList"
 import { CommentForm } from "../components/comments/CommentForm"
 import { UpdateCommentForm } from "../components/comments/UpdateComment"
+import { AuthorDetails } from "../authors/AuthorDetails"
 
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
@@ -33,8 +32,8 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/categories/:catId" element={<Categories />} />
         <Route path="/categories/:catId/edit" element={<CategoryEdit />} />
         <Route path="/tags" element={<TagsList />} />
-        <Route path="/users" element={<UserList />} />
-        <Route path="/users/:userId" element={<UserDetails />} />
+        {/* <Route path="/authors" element={<AuthorList />} /> */}
+        <Route path="/authors/:authorId" element={<AuthorDetails />} />
         <Route path="/comments" element={<CommentList />} />
         <Route path="/comments/new" element={<CommentForm />} />
         <Route path="/comments/edit/:commentId" element={<UpdateCommentForm />} />

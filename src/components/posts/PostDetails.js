@@ -19,7 +19,7 @@ export const PostDetails = () => {
         <div className="post_content" >{post?.content}</div>
         <div className="post_categories" > Category: {post?.category?.label}</div>
         <div className="post_date" > Date Created: {post?.date}</div>
-        <div className="post_author" ><h1>By: <Link to={`/users/${post?.author}`}>{post?.author?.user?.first_name} {post?.author?.user?.last_name} </Link> </h1> </div>
+        <div className="post_author" ><h1>By: <Link to={`/authors/${post?.author?.user?.id}`}>{post?.author?.user?.first_name} {post?.author?.user?.last_name} </Link> </h1> </div>
         <button className="post_button">Comments</button>
         <div> </div>
         <footer className="post__footer"></footer>
