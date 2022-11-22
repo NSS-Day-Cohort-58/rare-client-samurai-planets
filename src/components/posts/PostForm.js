@@ -70,7 +70,7 @@ export const PostForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="content">Post Content: </label>
-                    <input type="text" className="form-control" name="content" id="content" required autoFocus defaultValue={currentPost.content}
+                    <textarea type="text" className="form-control-content" name="content" id="content" required autoFocus defaultValue={currentPost.content}
                         onChange={changePostState} />
                 </div>
             </fieldset>

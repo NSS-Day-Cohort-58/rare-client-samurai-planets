@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { updatePost, getPost } from '../../managers/PostManager.js'
 import { getCategories } from "../../managers/CategoryManager.js"
 import { useParams } from "react-router-dom"
+import "./Posts.css"
 
 export const PostEdit = () => {
     const navigate = useNavigate()
@@ -70,7 +71,7 @@ export const PostEdit = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="content">Post Content: </label>
-                    <input type="text" className="form-control" id="content" required autoFocus defaultValue={currentPost.content}
+                    <textarea type="text" className="form-control-content" id="content" required autoFocus defaultValue={currentPost.content}
                         onChange={changePostState} />
                 </div>
             </fieldset>
