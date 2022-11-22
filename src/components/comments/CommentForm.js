@@ -12,7 +12,6 @@ export const CommentForm = () => {
         provide some default values.
     */
     const [currentComment, setCurrentComment] = useState({
-        authorId: 1,
         content: "",
         postId: 1
     })
@@ -30,7 +29,7 @@ export const CommentForm = () => {
             <h2 className="commentForm__title">Add New Comment</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">content: </label>
+                    <label htmlFor="comment">Comment: </label>
                     <input type="text" name="content" id="content" required autoFocus className="form-control"
                         value={currentComment.content}
                         onChange={changeCommentState}

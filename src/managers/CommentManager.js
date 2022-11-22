@@ -49,7 +49,7 @@ export const updateComment = (comment) => {
 }
 
 export const deleteComment = (id) => {
-    return fetch(`http://localhost:8000/games/${id}`, { 
+    return fetch(`http://localhost:8000/comments/${id}`, { 
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("auth_token")}`,

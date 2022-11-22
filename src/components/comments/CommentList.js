@@ -27,13 +27,13 @@ export const CommentList = (props) => {
             {
                 comments.map(comment => {
                     return <section key={`game--${comment.id}`} className="comment">
-                        <div className="comment_author">{comment.author}</div>
-                        <div className="comment">{comment.content}</div>
+                        <div className="comment_author">Author: {comment.author_name}</div>
+                        <div className="comment">Comment: {comment.content}</div>
                         <button className="btn btn-2 btn-sep icon-create"
                             onClick={() => {
                                 navigate({ pathname: `/comments/edit/${comment.id}` })
                             }}
-                        >Update Comment</button>
+                        >Edit Comment</button>
                         <button className="btn btn-2 btn-sep icon-create"
                             onClick={() => {
                             deleteComment(comment.id)
