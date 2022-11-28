@@ -21,10 +21,13 @@ export const PostDetails = () => {
         <div className="post_categories" > Category: {post?.category?.label}</div>
         <div className="post_date" > Date Created: {post?.date}</div>
         <div className="post_author" ><h1>By: <Link to={`/authors/${post?.author?.user?.id}`}>{post?.author?.user?.first_name} {post?.author?.user?.last_name} </Link> </h1> </div>
-        <button className="post_button"
-        onClick={() => {
-            navigate({ pathname: `/comments` })
-        }}>Comments</button>
+        {
+            post.post_comments.map(comment => {
+                return <div>
+                    {comment.content}
+                </div>
+            })
+        }
         <div> </div>
         <footer className="post__footer"></footer>
     </section>

@@ -1,7 +1,9 @@
 export const getComments = () => {
     return fetch("http://localhost:8000/comments", {
         headers:{
-            "Authorization": `Token ${localStorage.getItem("auth_token")}`
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`,
+            "Accept": "application/json",
+            "Content-Type": "application/json"
         }
     })
         .then(response => response.json())
