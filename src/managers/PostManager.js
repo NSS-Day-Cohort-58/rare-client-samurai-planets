@@ -51,3 +51,12 @@ export const deletePost = (post) => {
     },
     })
 }
+
+export const getPostsByAuthor = () => {
+    return fetch("http://localhost:8000/posts?myposts", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("auth_token")}`
+        }
+    })
+        .then(response => response.json())
+}

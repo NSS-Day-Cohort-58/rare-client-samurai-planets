@@ -11,6 +11,7 @@ import { CategoryForm } from "../components/categories/CategoryForm"
 import { CategoryEdit } from "../components/categories/CategoryEdit"
 import { PostEdit } from "../components/posts/PostEdit"
 import { PostForm } from "../components/posts/PostForm"
+import { PostsAuthorList } from "../components/posts/MyPosts"
 import { CommentList } from "../components/comments/CommentList"
 import { CommentForm } from "../components/comments/CommentForm"
 import { UpdateCommentForm } from "../components/comments/UpdateComment"
@@ -25,6 +26,7 @@ export const ApplicationViews = ({ token, setToken }) => {
       <Route element={<Authorized token={token} />}>
         {/* Add Routes here */}
         <Route path="/posts" element={<PostList />} />
+        <Route path="/myposts" element={<PostsAuthorList />} />
         <Route path="/posts/new" element={<PostForm />} />
         <Route path="/posts/:postId" element={<PostDetails />} />
         <Route path="/posts/:postId/edit" element={<PostEdit />} />
